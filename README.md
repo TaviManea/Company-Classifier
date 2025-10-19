@@ -1,22 +1,18 @@
-# Company-Classifier
-Purpose: multi-step pipeline to assign insurance taxonomy labels to a company list (preprocess → embed → ensemble semantic+lexical → adaptive top-K → evaluate).
-Key files:
-entire_pipeline.py / full_pipeline.py — end-to-end orchestration (normalize, weight, embed, assign, stats, prune, calibrate, adaptive, threshold, evaluate).
-export_annotated.py — produce final annotated CSV with column "insurance_label".
-Evaluate_model.py — standalone evaluator and threshold sweep.
-ml_insurance_challenge_cleaned.csv, insurance_taxonomy.csv — input data.
-Main outputs:
-ml_insurance_challenge_annotated.csv (final annotated list)
-ml_insurance_challenge_labeled_*.csv (intermediate labeled outputs)
-per_label_stats_auto.csv, auto_eval_summary.txt, *_threshold_sweep.csv (diagnostics)
-company_emb.npy, label_emb.npy (cached embeddings)
+# Veridion Challenge - Solution
+Summary: pipeline to assign insurance taxonomy labels to companies (preprocess → embed → ensemble → assign → evaluate).
 
-How to run (example):
-create env and install deps:
-# filepath: "Your filepath here"
-python -m pip install -r requirements.txt
-run full pipeline:
-python entire_pipeline.py --steps normalize,weight,embed,assign,stats,calibrate,adaptive,threshold,evaluate
-export annotated CSV:
-python export_annotated.py
+How to reproduce (minimal):
+1. Create venv, install:
+   python -m pip install -r requirements.txt
+2. Run pipeline (example):
+   python entire_pipeline.py --steps normalize,weight,embed,assign,stats,calibrate,adaptive,threshold,evaluate
+3. Export annotated CSV:
+   python export_annotated.py
 
+Included outputs:
+- ml_insurance_challenge_annotated.csv : annotated input with column "insurance_label"
+- auto_eval_summary.txt
+- per_label_stats_auto.csv
+
+Notes:
+- Keep only the small set of files when publishing to GitHub to avoid large artifacts.

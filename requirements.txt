@@ -1,0 +1,8 @@
+pandas
+numpy
+sentence-transformers
+scikit-learn
+joblib
+reportlab
+torch
+faiss-cpu

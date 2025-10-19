@@ -1,0 +1,4 @@
+Rows: 9492
+Coverage: 100.00%
+Avg labels/company: 3.00
+Scores — mean: 0.794, median: 0.780, std: 0.112

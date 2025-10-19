@@ -1,0 +1,7 @@
+﻿*.npy
+*.joblib
+*.pkl
+__pycache__/
+venv/
+.env
+*.log
